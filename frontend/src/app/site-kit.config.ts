@@ -7,7 +7,8 @@ import { SiteKitConfig, SITE_KIT_SCHEMA_VERSION } from '@ilia-ae/site-kit';
  *   - ik-nav topbar (links below; deposit's own lang/theme services and the PWA install button
  *     are projected into [slot=actions]);
  *   - ik-footer: brand + Proof / Source / Legal columns, © year → /qr, © glyph → /authorship,
- *     MIT license panel, tech badges, verify shield + GitHub/website icons;
+ *     MIT license, the stack as badges, the family of our sites as logo chips, verify shield +
+ *     GitHub/website icons;
  *   - ik-contact-qr powers /qr, ik-status-page the 404, ik-license /license,
  *     ik-authorship-validator /authorship (deposit's own /verify checks deposits, not authorship).
  *   - No cookie banner: the site sets no cookies and has no analytics (its privacy policy, §3).
@@ -28,6 +29,17 @@ const GLYPH =
     '<path d="M12 4 L12 14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>' +
     '<path d="M5 19 L19 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>' +
     '</svg>';
+
+/** Badge icons for the technologies the kit has no icon for (currentColor, 24×24). */
+const svg = (body: string) =>
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+const ICON = {
+    clock: svg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+    stamp: svg('<path d="M9 3h6v5l-1 3h-4l-1-3z"/><path d="M5 14h14v3H5z"/><path d="M4 21h16"/>'),
+    key: svg('<circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 7.7-7.7M16 7l2 2M14 9l1.5 1.5"/>'),
+    hash: svg('<path d="M5 9h14M5 15h14M10 4 8 20M16 4l-2 16"/>'),
+    prime: svg('<path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="M12 12 4 7M12 12l8-5M12 12v9"/>'),
+};
 
 export const DEPOSIT_CONFIG: SiteKitConfig = {
     schemaVersion: SITE_KIT_SCHEMA_VERSION,
@@ -54,15 +66,24 @@ export const DEPOSIT_CONFIG: SiteKitConfig = {
         { label: { en: 'Verify a deposit', ru: 'Проверить депозит' }, url: '/verify' },
     ],
 
+    // What deposit is made of and anchors into — each one is in its code or package-lock.json.
     technologies: [
         { kind: 'angular', version: '21' },
         { kind: 'typescript', version: '5.9' },
-        { kind: 'cloudflare' },
+        { kind: 'tailwind', version: '4.2' },
+        { name: 'PrimeNG', url: 'https://primeng.org', color: '#10b981', version: '21', icon: ICON.prime },
+        { kind: 'cloudflare', url: 'https://workers.cloudflare.com' }, // Workers: the /api proxy + static assets
         { kind: 'bitcoin' },
-        { name: 'OTS', url: 'https://opentimestamps.org', color: '#1a73e8' },
+        { name: 'OpenTimestamps', url: 'https://opentimestamps.org', color: '#1a73e8', icon: ICON.clock },
+        { kind: 'ethereum', name: 'Base L2', url: 'https://base.org', color: '#0052ff' },
+        { name: 'RFC 3161', url: 'https://datatracker.ietf.org/doc/html/rfc3161', color: '#64748b', icon: ICON.stamp },
+        { name: 'OpenPGP.js', url: 'https://openpgpjs.org', color: '#e04e39', version: '6.3', icon: ICON.key },
+        { name: 'Streebog', url: 'https://datatracker.ietf.org/doc/html/rfc6986', color: '#d52b1e', icon: ICON.hash },
     ],
 
     footer: {
+        // "our projects": the ILIA family as real-logo chips (deposit itself is left out)
+        projects: true,
         subtitle: { en: 'by mayday.software', ru: 'от mayday.software' },
         disclaimer: {
             en: 'All hashing and signing runs locally in your browser. We do not store or transmit your files. Open-source.',
