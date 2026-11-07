@@ -6,7 +6,7 @@ version: "0.1.0"
 date-released: "2026-04-16"
 license: MIT
 url: "https://deposit.mayday.software"
-repository-code: "https://github.com/razqqm/deposit.mayday.software"
+repository-code: "https://github.com/ilia-ae/deposit.mayday.software"
 abstract: >-
   Open-source cryptographic copyright deposit service.
   SHA-256 hashing, RFC 3161 timestamps, Bitcoin/OpenTimestamps anchoring,

@@ -29,3 +29,6 @@ npm-debug.log*
 *.tgz
 .env
 .env.*
+
+# the vendored @ilia-ae/site-kit (no registry token in CI / Workers Builds)
+!vendor/*.tgz

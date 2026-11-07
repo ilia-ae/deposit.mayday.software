@@ -1,0 +1,9 @@
+{
+    "$comment": "Manifest-only bundle for the site-kit dashboard. deposit handles unknown routes in-app (app.routes '**' → ik-status-page + Cloudflare not_found_handling = single-page-application), so this emits ONLY /kit/manifest.json — no error pages, no worker. Made by the prebuild: site-kit-static --config site-kit.static.json --out public → public/kit/manifest.json, served at /kit/manifest.json.",
+    "brand": { "name": "deposit", "url": "https://deposit.mayday.software" },
+    "languages": ["en", "ru"],
+    "defaultLang": "en",
+    "license": "mit",
+    "deploy": { "target": "cloudflare", "path": "/kit" },
+    "static": { "manifestOnly": true, "statuses": [] }
+}

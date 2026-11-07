@@ -28,9 +28,9 @@
                                 "input": "public"
                             }
                         ],
-                        "styles": ["src/assets/styles.scss", "src/assets/tailwind.css"],
+                        "styles": ["node_modules/@ilia-ae/site-kit/src/lib/styles/site-kit-tokens.css", "src/assets/styles.scss", "src/assets/tailwind.css"],
                         "scripts": [],
-                        "allowedCommonJsDependencies": ["pdfmake", "pvtsutils"]
+                        "allowedCommonJsDependencies": ["pdfmake", "pvtsutils", "qrcode-generator"]
                     },
                     "configurations": {
                         "production": {

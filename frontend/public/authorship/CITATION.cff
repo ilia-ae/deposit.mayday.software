@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+type: software
+title: "deposit.mayday.software"
+message: >-
+  Signed, timestamped authorship attestation for the deposit.mayday.software website.
+  Verify the detached GPG signature (CITATION.cff.asc) against the published
+  public key (pubkey.asc) to prove WHO, and the OpenTimestamps proof
+  (CITATION.cff.ots) to prove WHEN. Verify locally at
+  https://deposit.mayday.software/authorship — files never leave your browser.
+abstract: >-
+  deposit — open-source cryptographic copyright deposit: files are hashed in the
+  browser and the proof is anchored in Bitcoin (OpenTimestamps) and RFC 3161
+  timestamping authorities. This file is a cryptographic authorship attestation,
+  not the source: the GPG signature proves it was issued by Ilia Arestov
+  (code@ilia.ae) and the OpenTimestamps anchor proves the date.
+authors:
+  - given-names: Ilia
+    family-names: Arestov
+    email: code@ilia.ae
+url: "https://deposit.mayday.software"
+repository-code: "https://github.com/ilia-ae/deposit.mayday.software"
+license: MIT
+date-released: "2026-11-07"
+version: "1.0.0"
+keywords:
+  - deposit
+  - authorship
+  - attestation
+  - gpg
+  - openpgp
+  - opentimestamps
+  - sha256

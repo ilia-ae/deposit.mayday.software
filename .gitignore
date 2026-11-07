@@ -34,3 +34,6 @@ extension/coverage/
 # Logs
 *.log
 npm-debug.log*
+
+# site-kit generated manifest (prebuild artifact)
+frontend/public/kit/

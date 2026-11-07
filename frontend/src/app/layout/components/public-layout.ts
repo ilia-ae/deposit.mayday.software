@@ -1,11 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { PublicTopbar } from './public-topbar';
 import { PublicFooter } from './public-footer';
 import { PwaIndicators } from './pwa-indicators';
-import { LanguageService } from '@/app/shared/services/language.service';
-import { ThemeService } from '@/app/shared/services/theme.service';
 
 @Component({
     selector: 'app-public-layout',
@@ -40,12 +38,4 @@ import { ThemeService } from '@/app/shared/services/theme.service';
         }
     `]
 })
-export class PublicLayout implements OnInit {
-    private readonly lang = inject(LanguageService);
-    private readonly theme = inject(ThemeService);
-
-    ngOnInit(): void {
-        this.lang.init();
-        this.theme.init();
-    }
-}
+export class PublicLayout {}

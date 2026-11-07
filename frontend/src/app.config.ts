@@ -5,6 +5,8 @@ import { provideServiceWorker } from '@angular/service-worker';
 import { providePrimeNG } from 'primeng/config';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideSiteKit } from '@ilia-ae/site-kit';
+import { DEPOSIT_CONFIG } from './app/site-kit.config';
 import { appRoutes } from './app.routes';
 import Material from '@primeuix/themes/material';
 import { definePreset, palette } from '@primeuix/themes';
@@ -62,6 +64,7 @@ export const appConfig: ApplicationConfig = {
         ),
         provideHttpClient(withFetch()),
         provideZonelessChangeDetection(),
+        provideSiteKit(DEPOSIT_CONFIG),
         providePrimeNG({
             ripple: true,
             inputStyle: 'filled',
