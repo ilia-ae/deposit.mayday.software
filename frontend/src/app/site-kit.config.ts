@@ -82,8 +82,10 @@ export const DEPOSIT_CONFIG: SiteKitConfig = {
     ],
 
     footer: {
-        // "our projects": the ILIA family as real-logo chips (deposit itself is left out)
-        projects: true,
+        // under the brand text: the verify shield + five of our sites as logo chips — six icons, one
+        // line at every width (the mayday family first: aliro and MIRADOR are mayday products too)
+        projects: ['ilia', 'mayday', 'aliro', 'mirador', 'monolith'],
+        extras: 'brand',
         subtitle: { en: 'by mayday.software', ru: 'от mayday.software' },
         disclaimer: {
             en: 'All hashing and signing runs locally in your browser. We do not store or transmit your files. Open-source.',
